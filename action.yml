@@ -1,5 +1,5 @@
-name: Sourcegraph Go LSIF Indexer
-description: Generate LSIF data from Go source code
+name: Sourcegraph Dart LSIF Indexer
+description: Generate LSIF data from Dart source code
 author: Sourcegraph
 branding:
   icon: code
