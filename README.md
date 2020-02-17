@@ -18,21 +18,20 @@ name: LSIF
 on:
   - push
 jobs:
-  build:
+  index:
     runs-on: ubuntu-latest
+    container: google/dart:2.7
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
-        uses: docker://google/dart:2.7
         run: pub get
       - name: Generate LSIF data
         uses: sourcegraph/lsif-dart-action@master
-        with:
-          project_root: ./some/subproject
       - name: Upload LSIF data
         uses: sourcegraph/lsif-upload-action@master
         continue-on-error: true
         with:
+          file: dump.lsif
           endpoint: https://sourcegraph.com
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
