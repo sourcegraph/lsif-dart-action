@@ -2,13 +2,14 @@
 
 This action generate LSIF data from Dart source code. See the [LSIF dart indexer](https://github.com/sourcegraph/lsif-dart) for more details.
 
+The indexer will create a file `dump.lsif` in the given project root.
+
 ## Usage
 
 The following inputs can be set.
 
 | name         | default   | description |
 | ------------ | --------- | ----------- |
-| file         | `.`       | The directory fo the output `dump.lsif` file. |
 | project_root | `.`       | The root of the project. |
 
 The following is a complete example that uses the [upload action](https://github.com/sourcegraph/lsif-upload-action) to upload the generated data to [sourcegraph.com](https://sourcegraph.com).
