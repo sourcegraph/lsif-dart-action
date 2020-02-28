@@ -1,8 +1,6 @@
 # Sourcegraph Dart LSIF Indexer GitHub Action
 
-This action generate LSIF data from Dart source code. See the [LSIF dart indexer](https://github.com/sourcegraph/lsif-dart) for more details.
-
-The indexer will create a file `dump.lsif` in the given project root.
+This action generate LSIF data from Dart source code. See the [LSIF Dart indexer](https://github.com/sourcegraph/lsif-dart) for more details.
 
 ## Usage
 
@@ -12,7 +10,7 @@ The following inputs can be set.
 | ------------ | --------- | ----------- |
 | project_root | `.`       | The root of the project. |
 
-The following is a complete example that uses the [upload action](https://github.com/sourcegraph/lsif-upload-action) to upload the generated data to [sourcegraph.com](https://sourcegraph.com).
+The following is a complete example that uses the [upload action](https://github.com/sourcegraph/lsif-upload-action) to upload the generated data to [sourcegraph.com](https://sourcegraph.com). Put this in `.github/workflows/lsif.yaml`.
 
 ```
 name: LSIF
@@ -30,9 +28,6 @@ jobs:
         uses: sourcegraph/lsif-dart-action@master
       - name: Upload LSIF data
         uses: sourcegraph/lsif-upload-action@master
-        continue-on-error: true
         with:
-          file: dump.lsif
-          endpoint: https://sourcegraph.com
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
