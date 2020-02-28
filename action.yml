@@ -6,12 +6,16 @@ branding:
   color: purple
 
 inputs:
-  project_root: 
-    description: The project root.
+  file:
+    description: The output filename (relative to the repository root).
+    default: dump.lsif
+  project_root:
+    description: The project root (where crossdart is invoked).
     default: .
 
 runs:
   using: docker
   image: Dockerfile
   env:
+    OUT: ${{ inputs.file }}
     PROJECT_ROOT: ${{ inputs.project_root }}
