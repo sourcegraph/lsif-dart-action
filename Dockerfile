@@ -1,8 +1,6 @@
-FROM google/dart:2.7 as builder
+FROM google/dart:2.7
 
-# The commit at which to build lsif-dart
 ENV INDEXER_COMMIT=9987ef9325e08fa3f650c88ef28e2074f6fcaadf
-ENV CLONE_URL="https://github.com/sourcegraph/lsif-dart.git"
 
 LABEL version="0.1.0"
 LABEL repository="http://github.com/sourcegraph/lsif-dart-action"
@@ -15,7 +13,7 @@ LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="purple"
 
 WORKDIR /crossdart
-RUN git clone "${CLONE_URL}" . && \
+RUN git clone https://github.com/sourcegraph/lsif-dart.git . && \
     git checkout -q "${INDEXER_COMMIT}" && \
     pub get
 
