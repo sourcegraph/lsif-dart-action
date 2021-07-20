@@ -1,4 +1,4 @@
-FROM google/dart:2.7
+FROM google/dart:2.10
 
 ENV INDEXER_COMMIT=9987ef9325e08fa3f650c88ef28e2074f6fcaadf
 
